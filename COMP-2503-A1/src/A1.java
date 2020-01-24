@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /** 
  * COMP 2503 Winter 2020 Assignment 1 
@@ -95,24 +96,30 @@ public class A1
  		* Create a new token object, if not already in the wordlist, 
  		* add the token to the word list, otherwise, increase the frequency count.
  		*/
-	   File f = new File("input2.txt");
-	   try 
-	   {
-		   input = new Scanner(f);
 		   while (input.hasNext()) {
 			   String s = input.next().trim().toLowerCase().replaceAll("[^a-z]", "");
-			   if (!s.isEmpty()) {
-				   wordlist.add(new Token(s));
+			   //System.out.println(s);
+			   if (s.isEmpty()) {
+				   continue;
 			   }
+			   totalwordcount++;
+			   if (Arrays.asList(stopwords).contains(s)) {
+				   stopwordcount++;
+				   continue;
+			   }
+			  checkToken(s);
+			   
 		   }
-		   for (Token s : wordlist) {
-			   System.out.println(s.toString());
+   }
+   
+   private void checkToken(String s) {
+	   for (Token t : wordlist) {
+		   if (t.getWord().equals(s)) {
+			   t.increment();
+			   return;
 		   }
-	   } 
-	   catch (FileNotFoundException e) 
-	   {
-		   e.printStackTrace();
 	   }
+	   wordlist.add(new Token(s));
    }
 
    /** Run the program. Read the file, then print the results. 
