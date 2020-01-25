@@ -5,16 +5,15 @@ import java.util.Collections;
 
 /** 
  * COMP 2503 Winter 2020 Assignment 1 
- * by: Matthew Fudge
- * Date: January 20, 2020
  * 
  * This program reads a text file and compiles a list of the 
  * words together with how many each word appears. 
  *
  * Words from a standard list of stop words are not included.
  * 
- * Updated Winter 2020
- * @author Maryam Elahi
+ * This assignment was completed with assistance from 
+ * 
+ * @author Matthew Fudge
 */
 public class A1 {
    
@@ -44,8 +43,6 @@ public class A1 {
       a1.run();
    }
 
-
-
    private void printResults() {
        System.out.println( "Total Words: " + totalwordcount);
        System.out.println( "Unique Words: " + wordlist.size()); 
@@ -53,9 +50,11 @@ public class A1 {
        System.out.println();
        System.out.println( "10 Most Frequent");
        
-       /* TODO:
+       /**
         * Use collection sort to sort the wordlist in descending frequency order.
         * Then print the first 10.
+        * 
+        * Completed with assistance from Taylor Amy.
         */
        Collections.sort(wordlist, new CompCountAsc());
        for (int i = 0; i < Math.min(10, wordlist.size()); i++) {
@@ -64,9 +63,12 @@ public class A1 {
 
        System.out.println();
        System.out.println( "10 Least Frequent");
-       /* TODO:
+       
+       /**
         * Use collection sort to sort the wordlist in ascending frequency order.
         * Then print the first 10.
+        * 
+        * Completed with assistance from Taylor Amy.
         */
        Collections.sort(wordlist, new CompCountDesc());
        for (int i = 0; i < Math.min(10, wordlist.size()); i++) {
@@ -75,7 +77,8 @@ public class A1 {
 
        System.out.println();
        System.out.println( "All");
-       /* TODO:
+       
+       /**
         * Use collection sort to sort the wordlist by its natural ordering (alphabetical).
         * Then print all the words.
         */
@@ -97,12 +100,6 @@ public class A1 {
    and the number of occurances is tracked.
    */
    private void readFile() {
-	   /* TODO: read the input one word at a time, turn to lower-case, 
-	    * trim the whitespaces and all other characters but a-z.
-	    * If the word is a stopword, ignore it. Otherwise,
- 		* Create a new token object, if not already in the wordlist, 
- 		* add the token to the word list, otherwise, increase the frequency count.
- 		*/
 		   while (input.hasNext()) {
 			   String s = input.next().trim().toLowerCase().replaceAll("[^a-z]", "");
 			   if (s.isEmpty()) {
@@ -118,6 +115,13 @@ public class A1 {
 		   }
    }
    
+   /**
+    * Checks if a String already exists in a token in the wordlist.
+    * 
+    * Completed with assistance from Nahuel Paladino.
+    * 
+    * @param s String to check if it already exists in a token
+    */
    private void checkToken(String s) {
 	   for (Token t : wordlist) {
 		   if (t.getWord().equals(s)) {
