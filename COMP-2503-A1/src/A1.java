@@ -1,6 +1,4 @@
 import java.util.Scanner;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -18,8 +16,7 @@ import java.util.Collections;
  * Updated Winter 2020
  * @author Maryam Elahi
 */
-public class A1 
-{
+public class A1 {
    
    private ArrayList<Token> wordlist = new ArrayList<Token>();
 
@@ -42,16 +39,14 @@ public class A1
 
    private Scanner input = new Scanner( System.in);
 
-   public static void main( String[ ] args) 
-   {	
+   public static void main( String[ ] args) {	
       A1 a1 = new A1();
       a1.run();
    }
 
 
 
-   private void printResults() 
-   {
+   private void printResults() {
        System.out.println( "Total Words: " + totalwordcount);
        System.out.println( "Unique Words: " + wordlist.size()); 
        System.out.println( "Stop Words: " + stopwordcount);
@@ -101,8 +96,7 @@ public class A1
    Any non-stopword word is stored in the list of words 
    and the number of occurances is tracked.
    */
-   private void readFile() 
-   {
+   private void readFile() {
 	   /* TODO: read the input one word at a time, turn to lower-case, 
 	    * trim the whitespaces and all other characters but a-z.
 	    * If the word is a stopword, ignore it. Otherwise,
@@ -136,8 +130,7 @@ public class A1
 
    /** Run the program. Read the file, then print the results. 
    */
-   public void run() 
-   {
+   public void run() {
       readFile();
       printResults();
    }
