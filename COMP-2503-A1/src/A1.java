@@ -62,6 +62,10 @@ public class A1
         * Use collection sort to sort the wordlist in descending frequency order.
         * Then print the first 10.
         */
+       Collections.sort(wordlist, new CompCountAsc());
+       for (int i = 0; i < Math.min(10, wordlist.size()); i++) {
+    	   System.out.println(wordlist.get(i).toString());
+       }
 
        System.out.println();
        System.out.println( "10 Least Frequent");
@@ -69,6 +73,10 @@ public class A1
         * Use collection sort to sort the wordlist in ascending frequency order.
         * Then print the first 10.
         */
+       Collections.sort(wordlist, new CompCountDesc());
+       for (int i = 0; i < Math.min(10, wordlist.size()); i++) {
+    	   System.out.println(wordlist.get(i).toString());
+       }
 
        System.out.println();
        System.out.println( "All");
