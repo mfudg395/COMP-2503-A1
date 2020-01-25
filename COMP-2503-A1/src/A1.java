@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 /** 
  * COMP 2503 Winter 2020 Assignment 1 
@@ -75,6 +76,10 @@ public class A1
         * Use collection sort to sort the wordlist by its natural ordering (alphabetical).
         * Then print all the words.
         */
+       Collections.sort(wordlist);
+       for (Token t : wordlist) {
+    	   System.out.println(t.toString());
+       }
    }
 
    /**  
@@ -98,7 +103,6 @@ public class A1
  		*/
 		   while (input.hasNext()) {
 			   String s = input.next().trim().toLowerCase().replaceAll("[^a-z]", "");
-			   //System.out.println(s);
 			   if (s.isEmpty()) {
 				   continue;
 			   }
