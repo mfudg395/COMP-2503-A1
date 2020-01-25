@@ -7,22 +7,27 @@ public class Token implements Comparable<Token>
 	public Token(String word) 
 	{
 		this.word = word;
-		counter = 0;
+		counter = 1;
 	}
 	
-	private String getWord() 
+	public String getWord() 
 	{
 		return word;
 	}
 	
-	private int getCounter() 
+	public int getCounter() 
 	{
 		return counter;
 	}
 	
 	public String toString()
 	{
-		return word;
+		return word + " : " + counter;
+	}
+	
+	public void increment()
+	{
+		counter++;
 	}
 	
 	@Override
@@ -39,7 +44,6 @@ public class Token implements Comparable<Token>
 		if (other == null)
 			return false;
 		Token checkToken = (Token) other;
-		return word.equals(checkToken.getWord());
-	}
-
+		return this.word.equals(checkToken.getWord());
+		}
 }
